@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Svelte Website</title>
+    <style>
+        :root {
+            --primary-color: #ff3e00;
+            --secondary-color: #676778;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .hero {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--secondary-color);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #ff6a3c;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+    </style>
+<!-- <script type="text/javascript">(function(){var s=document.createElement('script');s.src="http://localhost:3001/mypersonas.js";s.setAttribute("data-integration-id","01K3NGKSK4PFXGETPKPGPJF6PR");s.setAttribute("data-product","authenticated-website");s.setAttribute("data-region","us");s.defer=true;document.head.appendChild(s);})();</script> -->
+
+<!-- Add this script to set user details for authenticated websites -->
+<!-- <script type="text/javascript">
+  window.MYP_HOST_DETAILS = window.MYP_HOST_DETAILS || {};
+  window.MYP_HOST_DETAILS.user = {
+    providerUserId: "123",
+    firstName: "abcd",
+    lastName: "acd",
+    email: "test@dsfsf.com",
+    provider: "test"
+  };
+</script> -->
+<!-- <script type="text/javascript">(function(){var s=document.createElement('script');s.src="http://www.mujo.com/mypersonas.js";s.setAttribute("data-integration-id","01K5G7GE21GST4PRNW2G44WXER");s.setAttribute("data-product","");s.setAttribute("data-region","us");s.defer=true;document.head.appendChild(s);})();</script> -->
+<!-- <script type="text/javascript">(function(){var s=document.createElement('script');s.src="http://localhost:3001/mypersonas.js";s.setAttribute("data-integration-id","01KBFHK6RANG9QV3Z9N19Z2A0J");s.setAttribute("data-product","");s.setAttribute("data-region","us");s.defer=true;document.head.appendChild(s);})();</script> -->
+<!-- <script type="text/javascript">(function(){var s=document.createElement('script');s.src="http://localhost:3001/mypersonas.js";s.setAttribute("data-integration-id","01KD5ZZW8DA8CR92KA527FCTHW");s.setAttribute("data-product","");s.setAttribute("data-region","us");s.defer=true;document.head.appendChild(s);})();</script> -->
+<script type="text/javascript">(function(){var s=document.createElement('script');s.src="http://localhost:3001/mypersonas.js";s.setAttribute("data-integration-id","01JWHKR2STQ5FFNCAEXS1MSVRQ");s.setAttribute("data-product","public");s.setAttribute("data-region","us");s.defer=true;document.head.appendChild(s);})();</script>
+<!-- <script type="text/javascript">(function(){var s=document.createElement('script');s.src="http://localhost:3001/mypersonas.js";s.setAttribute("data-integration-id","01KGMR9ZRKH3582DMMHVQJNS6M");s.setAttribute("data-product","");s.setAttribute("data-region","us");s.defer=true;document.head.appendChild(s);})();</script> -->
+<!-- <script type="text/javascript">(function(){var s=document.createElement('script');s.src="https://mypersonas-public.s3.amazonaws.com/qa/js/mypersonas.js";s.setAttribute("data-integration-id","01KGMR9ZRKH3582DMMHVQJNS6M");s.setAttribute("data-product","public");s.setAttribute("data-region","us");s.defer=true;document.head.appendChild(s);})();</script> -->
+<!-- <script type="text/javascript">(function(){var s=document.createElement('script');s.src="http://localhost:3001/mypersonas.js";s.setAttribute("data-integration-id","01KKVEER5A7MHS018N8TKN25XM");s.setAttribute("data-product","public");s.setAttribute("data-region","us");s.setAttribute("data-website-type","public");s.defer=true;document.head.appendChild(s);})();</script> -->
+<!-- <script type="text/javascript">(function(){var s=document.createElement('script');s.src="http://localhost:3001/mypersonas.js";s.setAttribute("data-integration-id","01KKXCA5HRETY1NS6C8R55F6WG");s.setAttribute("data-product","public");s.setAttribute("data-region","us");s.setAttribute("data-website-type","public");s.defer=true;document.head.appendChild(s);})();</script> -->
+<header>
+        <h1>My Svelte Website</h1>
+    </header>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#test" id="test">MyPersonas</a>
+    </nav>
+    
+    <main>
+        <section id="home" class="hero">
+            <h1>Welcome to Svelte</h1>
+            <p>A radical new approach to building user interfaces. Svelte shifts the work into a compile step rather than doing the work in the browser.</p>
+            <br>
+            <button id="learn-more">Learn More</button>
+        </section>
+        
+        <section id="features" class="features">
+          
+            <div class="feature">
+                <h2>No Virtual DOM</h2>
+                <p>Svelte doesn't use a Virtual DOM. Instead, it updates the DOM directly when your state changes.</p>
+            </div>
+            <div class="feature">
+                <h2>Truly Reactive</h2>
+                <p>No more complex state management libraries. Svelte brings reactivity to JavaScript itself.</p>
+            </div>
+            <div class="feature">
+                <h2>Less Code</h2>
+                <p>Write less code and build boilerplate-free components using languages you already know — HTML, CSS and JavaScript.</p>
+            </div>
+        </section>
+        <!-- <div id="container-didfdfdf" data-width="400" data-height="400">MyPersonas chat widget will be embedded here</div> -->
+        <!-- <div id="container-didfdfdf" data-width="400" data-height="400">MyPersonas chat widget will be embedded here</div> -->
+        <!-- <div id="container-didfdfdf" data-width="400" data-height="400">MyPersonas chat widget will be embedded here</div> -->
+        <!-- <a id="container-didfdfdf">Click here to open MyPersonas chat</a> -->
+        <!-- <div id="container-didfdfdf" data-width="400" data-height="400">MyPersonas chat widget will be embedded here</div> -->
+        <!-- <div id="container-didfdfdf" data-width="600" data-height="400"></div> -->
+        <!-- <div id="test" data-width="400" data-height="400">MyPersonas chat widget will be embedded here</div> -->
+        <!-- <div id="test123" data-width="1000" data-height="1100" style="margin:auto"></div> -->
+        <a id="my-chat-container" data-width="400" data-height="400">MyPersonas chat widget will be embedded here</a>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 My Svelte Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // This is where you would normally import your Svelte components
+        // For a real Svelte app, you'd have a build process with Rollup or Webpack
+        
+        // Simple JavaScript for demo purposes
+        document.getElementById('learn-more').addEventListener('click', function() {
+            alert('Svelte is awesome! Check out svelte.dev to learn more.');
+        });
+        
+        // In a real Svelte app, you'd initialize your app like this:
+        // import App from './App.svelte';
+        // 
+        // const app = new App({
+        //   target: document.body,
+        //   props: {
+        //     name: 'world'
+        //   }
+        // });
+        // 
+        // export default app;
+    </script>
+ 
+</body>
+</html>
